@@ -1,0 +1,53 @@
+.logo{
+  height: 120px;
+}
+
+.lineamenu{
+    width: 0;
+    transition: width 500ms;
+  }
+  a:hover .lineamenu{
+    width: 100%;
+    
+  }
+  
+.flechaArriba{
+    cursor: pointer;
+    bottom:120px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    transition: 1s;
+  }
+  
+  .flechaArriba:hover{
+    transform: scale(1.3);
+  }
+  
+  .iconWhatsapp{
+    cursor: pointer;
+    bottom:50px;
+    right: 30px; 
+    width: 50px;
+    height: 50px;
+    background-color: #25D366;
+    transition: 500ms;
+  }
+  
+  .iconWhatsapp:hover{
+    transform: scale(1.3);
+    background-color: #24E100;
+  }
+  
+  .ocultar{
+    transform: translateY(-130px);
+    transition: 500ms;
+  }
+  .mostrar{
+    transform: translateY(0px);
+    transition: 500ms;
+  }
+  .ocultarFlecha{
+    transform: scale(0);
+    transition: 500ms;
+  }

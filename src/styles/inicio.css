@@ -1,0 +1,43 @@
+.fondo{
+    height: 100vh;
+    width: 100%;
+    /* object-fit: cover; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../assets/inicio/bg.jpg);
+    text-shadow: 1px 1px 2px black;
+}
+.botonHistoria{
+    width: 250px;
+}
+.contenedorFlecha{
+    position:absolute;
+    bottom: 0px;
+    left: calc(50% - 30px); 
+    background-color: white;
+    padding: 5px 15px;   
+}
+.flecha{
+    animation: animFlecha 2s infinite;
+}
+@keyframes animFlecha{
+    50%{transform: translateY(.4em);}
+}
+
+.info{
+    padding:  100px 0;
+}
+
+@media (max-width: 576px) {
+    .fondo h3{
+        font-size: 1.6rem;
+    }
+
+    #info h2{
+        font-size: 1.4rem;
+    }
+
+    #info h4{
+        font-size: 1.1rem;
+    }
+ }
