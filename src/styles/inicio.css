@@ -1,7 +1,7 @@
 .fondo{
     height: 100vh;
     width: 100%;
-    /* object-fit: cover; */
+    object-fit: hidden;
     background-size: cover;
     background-repeat: no-repeat;
     background-image: url(../assets/inicio/bg.jpg);
