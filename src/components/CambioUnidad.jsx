@@ -1,6 +1,22 @@
+import {useState} from 'react';
 
 const CambioUnidad = (medida, unidad) => {
 
+    const [Unidad, setUnidad] = useState(0);
+
+    function pulgadas(numero){
+        if(variable != null){   
+            //SI ES DIFERENTE DE NULL   
+            return(numero = 0.3937008 * parseFloat(numero));
+          }   
+    }
+
+    function centimetros(numero){
+        if(variable != null){   
+            //SI ES DIFERENTE DE NULL   
+            return(numero = 2.54 * parseFloat(numero));
+          }   
+    }
 
     function Metros(numero){
         if(variable != null){   

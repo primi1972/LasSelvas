@@ -28,11 +28,10 @@ window.addEventListener("scroll", function () {
 });
 
 const Header = () => {
-
   var [Valor, setValor] = useState(0);
-
-  
-
+  const [Unidad, setUnidad] = useState(0);
+  const [UnidadMetrica, setUnidadMetrica] = useState('mts');
+  const [UnidadInglesa, setUnidadInglesa] = useState('pies');
 
   return (
     <Fragment>
@@ -145,49 +144,63 @@ const Header = () => {
             className="menuOcultar1 form d-flex ms-3 p-2 bg-success shadow"
             style={{ width: "300px" }}
           >
-            <input type="number" name="number" className="form-control ms-2" onChange={(e) => {
-             
-              setValor(e.target.value);
-              console.log(Valor);
-            }}/>
+            <input
+              type="number"
+              name="number"
+              className="form-control ms-2"
+              onChange={(e) => {
+                setValor(e.target.value);
+                console.log(Valor);
+              }}
+            />
             <div
               onClick={() => {
                 function Metros(numero) {
+                  //SI ES DIFERENTE DE NULL
                   if (numero != null) {
-                    //SI ES DIFERENTE DE NULL
-                    return((3.28084 * parseFloat(numero)).toFixed(2)) ;
+                    var Constante = 0;
+                    Unidad ? Constante = 2.54: Constante = 3.28084;
+                    return (Constante * parseFloat(numero)).toFixed(2);
                   }
                 }
-                toast.success(`${Valor} pies = ${Metros(Valor)} mts`, {
+                toast.success(`${Valor} ${UnidadInglesa} = ${Metros(Valor)} ${UnidadMetrica}`, {
                   className: "bg-primary fs-3 text-white shadow",
                 });
               }}
               className="btn btn-success mx-1"
             >
-              mts
+              {UnidadMetrica}
             </div>
             <div
               onClick={() => {
                 function Metros(numero) {
+                  //SI ES DIFERENTE DE NULL
                   if (numero != null) {
-                    //SI ES DIFERENTE DE NULL
-                    return((0.3048 * parseFloat(numero)).toFixed(2)) ;
+                    
+                    var Constante = 0;
+                    Unidad ? Constante = 0.3937008 : Constante = 0.3048;
+                    return (0.3048 * parseFloat(numero)).toFixed(2);
                   }
                 }
-                toast.success(`${Valor} mts = ${Metros(Valor)} pies`, {
+                toast.success(`${Valor} ${UnidadMetrica} = ${Metros(Valor)} ${UnidadInglesa}`, {
                   className: "bg-primary fs-3 text-white shadow",
                 });
               }}
               className="btn btn-success"
             >
-              pies
+              {UnidadInglesa}
             </div>
             <div>
               <button
+                onClick={() => {
+                  setUnidad(!Unidad);
+                  Unidad ? setUnidadMetrica('mts') :  setUnidadMetrica('cms');
+                  Unidad ? setUnidadInglesa('pies') :  setUnidadInglesa('pulg');
+                }}
                 type="button"
-                className="btn-close btn-close-white me-2 m-auto"
+                className="btn-close btn-close-white m-auto mt-1"
                 data-bs-dismiss="toast"
-                aria-label="Close"
+                aria-label=""
               ></button>
             </div>
           </form>
