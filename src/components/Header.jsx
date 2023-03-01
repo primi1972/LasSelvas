@@ -30,8 +30,8 @@ window.addEventListener("scroll", function () {
 const Header = () => {
   var [Valor, setValor] = useState(0);
   const [Unidad, setUnidad] = useState(0);
-  const [UnidadMetrica, setUnidadMetrica] = useState('mts');
-  const [UnidadInglesa, setUnidadInglesa] = useState('pies');
+  const [UnidadMetrica, setUnidadMetrica] = useState("mts");
+  const [UnidadInglesa, setUnidadInglesa] = useState("pies");
 
   return (
     <Fragment>
@@ -150,22 +150,28 @@ const Header = () => {
               className="form-control ms-2"
               onChange={(e) => {
                 setValor(e.target.value);
-                console.log(Valor);
               }}
             />
             <div
               onClick={() => {
-                function Metros(numero) {
+                function Transforma(numero) {
                   //SI ES DIFERENTE DE NULL
-                  if (numero != null) {
+                  if (!isNaN(numero)) {
                     var Constante = 0;
-                    Unidad ? Constante = 2.54: Constante = 3.28084;
+                    Unidad ? (Constante = 2.54) : (Constante = 3.28084);
                     return (Constante * parseFloat(numero)).toFixed(2);
                   }
+                  setValor(0);
+                  return (0);
                 }
-                toast.success(`${Valor} ${UnidadInglesa} = ${Metros(Valor)} ${UnidadMetrica}`, {
-                  className: "bg-primary fs-3 text-white shadow",
-                });
+                toast.success(
+                  `${Valor} ${UnidadInglesa} = ${Transforma(
+                    Valor
+                  )} ${UnidadMetrica}`,
+                  {
+                    className: "bg-primary fs-3 text-white shadow",
+                  }
+                );
               }}
               className="btn btn-success mx-1"
             >
@@ -173,18 +179,24 @@ const Header = () => {
             </div>
             <div
               onClick={() => {
-                function Metros(numero) {
+                function Transforma(numero) {
                   //SI ES DIFERENTE DE NULL
-                  if (numero != null) {
-                    
+                  if (!isNaN(numero)) {
                     var Constante = 0;
-                    Unidad ? Constante = 0.3937008 : Constante = 0.3048;
-                    return (0.3048 * parseFloat(numero)).toFixed(2);
+                    Unidad ? (Constante = 0.3937008) : (Constante = 0.3048);
+                    return (Constante * parseFloat(numero)).toFixed(2);
                   }
+                  setValor(0);
+                  return (0);
                 }
-                toast.success(`${Valor} ${UnidadMetrica} = ${Metros(Valor)} ${UnidadInglesa}`, {
-                  className: "bg-primary fs-3 text-white shadow",
-                });
+                toast.success(
+                  `${Valor} ${UnidadMetrica} = ${Transforma(
+                    Valor
+                  )} ${UnidadInglesa}`,
+                  {
+                    className: "bg-primary fs-3 text-white shadow",
+                  }
+                );
               }}
               className="btn btn-success"
             >
@@ -194,12 +206,12 @@ const Header = () => {
               <button
                 onClick={() => {
                   setUnidad(!Unidad);
-                  Unidad ? setUnidadMetrica('mts') :  setUnidadMetrica('cms');
-                  Unidad ? setUnidadInglesa('pies') :  setUnidadInglesa('pulg');
+                  Unidad ? setUnidadMetrica("mts") : setUnidadMetrica("cms");
+                  Unidad ? setUnidadInglesa("pies") : setUnidadInglesa("pulg");
                 }}
                 type="button"
                 className="btn-close btn-close-white m-auto mt-1"
-                data-bs-dismiss="toast"
+                // data-bs-dismiss="toast"
                 aria-label=""
               ></button>
             </div>
