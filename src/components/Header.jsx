@@ -210,10 +210,10 @@ const Header = () => {
                   Unidad ? setUnidadInglesa("pies") : setUnidadInglesa("pulg");
                 }}
                 type="button"
-                className="btn-close btn-close-white m-auto mt-1"
+                className="btn bg-success text-white ms-1 shadow"
                 // data-bs-dismiss="toast"
                 aria-label=""
-              ></button>
+              >U</button>
             </div>
           </form>
           <div>
